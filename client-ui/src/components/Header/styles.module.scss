@@ -1,0 +1,58 @@
+@import '../../styles/utils/mixins';
+
+.header {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 24px;
+
+  @include onTablet {
+    height: 40px;
+  }
+
+  @include onLaptop {
+    border-right: 1px solid rgb(225, 225, 225);
+    padding-right: 30px;
+  }
+}
+
+.menu {
+  display: none;
+  gap: 12px;
+  align-items: center;
+
+  @include onLaptop {
+    display: flex;
+  }
+}
+
+.menuDesktop {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.menuPhone {
+  display: flex;
+  opacity: 0.5;
+
+  @include onTablet {
+    display: none;
+  }
+}
+
