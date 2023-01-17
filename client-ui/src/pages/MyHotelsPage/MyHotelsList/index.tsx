@@ -53,7 +53,7 @@ const MyHotelsList: React.FC = () => {
     }))
       .unwrap()
       .finally(() => setIsLoading(false))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line
   }, [tabValue, page, limit])
 
   useEffect(() => {
