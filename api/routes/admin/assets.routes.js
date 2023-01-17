@@ -24,12 +24,13 @@ const bucket = gc.bucket('hotels-reservations-assets');
 
 router.post('/', authMiddleware, upload.array('files'), async (req, res) => {
   try {
-    const promises = [];
-    req.files.map((file) => {
-      bucket.upload(file.path)
-      promises.push(new Asset({path: `https://storage.googleapis.com/hotels-reservations-assets/${file.filename}`}).save())
+    const promises = req.files.map(async (file) => {
+      await bucket.upload(file.path)
+      const asset = new Asset({path: `https://storage.googleapis.com/hotels-reservations-assets/${file.filename}`})
+      await asset.save();
+      return asset;
     })
-    console.log(promises);
+
     return Promise.all(promises).then((data) => res.json(data))
   } catch (e) {
     console.log(e);
