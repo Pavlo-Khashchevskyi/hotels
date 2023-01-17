@@ -166,7 +166,7 @@ const HotelInfo: React.FC = () => {
 
                 <Grid item xs={12}>
                   <Typography className={classes.subtitle}>Description</Typography>
-                  <Typography>{description}</Typography>
+                  <Typography className={classes.text}>{description}</Typography>
                 </Grid>
               </Grid>
             </Box>
